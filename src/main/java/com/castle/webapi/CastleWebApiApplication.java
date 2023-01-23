@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CastleWebApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CastleWebApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CastleWebApiApplication.class, args);
+    }
 
 }
