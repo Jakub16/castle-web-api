@@ -4,19 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Setter;
 
 @Setter
-public class WeatherDto {
+public class HourlyWeatherElementDto {
     @JsonProperty("id")
-    private long id;
-    @JsonProperty("latitude")
-    private float latitude;
-    @JsonProperty("longitude")
-    private float longitude;
+    private Long id;
     @JsonProperty("unix_time")
     private long unixTime;
-    @JsonProperty("sunrise")
-    private long sunrise;
-    @JsonProperty("sunset")
-    private long sunset;
     @JsonProperty("temperature")
     private float temperature;
     @JsonProperty("perceived_temperature")
@@ -25,10 +17,16 @@ public class WeatherDto {
     private int pressure;
     @JsonProperty("humidity")
     private int humidity;
+    @JsonProperty("uvi")
+    private float uvi;
     @JsonProperty("cloudiness")
     private int cloudiness;
     @JsonProperty("wind_speed")
     private float windSpeed;
     @JsonProperty("weather_description")
     private WeatherDescriptionDto weatherDescriptionDto;
+    @JsonProperty("probability_of_precipitation")
+    private float probabilityOfPrecipitation;
+//    @JsonProperty("rain_amount")
+//    private float rainAmount;
 }

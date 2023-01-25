@@ -3,7 +3,7 @@ package com.castle.webapi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.castle")
 public class CastleWebApiApplication {
 
     public static void main(String[] args) {
