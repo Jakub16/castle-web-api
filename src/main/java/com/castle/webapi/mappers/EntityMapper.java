@@ -1,4 +1,3 @@
-
 package com.castle.webapi.mappers;
 
 import com.castle.data.model.*;

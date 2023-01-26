@@ -29,4 +29,9 @@ public class HourlyWeatherElementDto {
     private float probabilityOfPrecipitation;
 //    @JsonProperty("rain_amount")
 //    private float rainAmount;
+
+    public HourlyWeatherElementDto setWeatherDescriptionDto(WeatherDescriptionDto weatherDescriptionDto) {
+        this.weatherDescriptionDto = weatherDescriptionDto;
+        return this;
+    }
 }

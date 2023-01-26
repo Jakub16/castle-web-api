@@ -50,4 +50,9 @@ public class DailyWeatherElementDto {
 //    private float rainAmount;
     @JsonProperty("uvi")
     private float uvi;
+
+    public DailyWeatherElementDto setWeatherDescriptionDto(WeatherDescriptionDto weatherDescriptionDto) {
+        this.weatherDescriptionDto = weatherDescriptionDto;
+        return this;
+    }
 }

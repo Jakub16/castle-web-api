@@ -13,6 +13,7 @@ public class WeatherMapper implements IMapEntities<Weather, WeatherDto> {
 
     @Override
     public WeatherDto map(Weather weather, WeatherDto weatherDto) {
+        weatherDto.setId(weather.getId());
         weatherDto.setLatitude(weather.getLatitude());
         weatherDto.setLongitude(weather.getLongitude());
         weatherDto.setUnixTime(weather.getUnixTime());
