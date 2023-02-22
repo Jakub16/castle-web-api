@@ -4,6 +4,8 @@ import com.castle.data.model.DailyWeatherElement;
 import com.castle.webapi.contract.DailyWeatherElementDto;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherElement, DailyWeatherElementDto> {
     @Override
@@ -14,7 +16,7 @@ public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherEleme
     @Override
     public DailyWeatherElementDto map(DailyWeatherElement dailyWeatherElement, DailyWeatherElementDto dailyWeatherElementDto) {
         dailyWeatherElementDto.setId(dailyWeatherElement.getId());
-        dailyWeatherElementDto.setUnixTime(dailyWeatherElement.getUnixTime());
+        dailyWeatherElementDto.setTime(new Date(dailyWeatherElement.getUnixTime() * 1000));
         dailyWeatherElementDto.setSunrise(dailyWeatherElement.getSunrise());
         dailyWeatherElementDto.setSunset(dailyWeatherElement.getSunset());
         dailyWeatherElementDto.setDayTemperature(dailyWeatherElement.getDayTemperature());
@@ -31,7 +33,7 @@ public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherEleme
         dailyWeatherElementDto.setHumidity(dailyWeatherElement.getHumidity());
         dailyWeatherElementDto.setCloudiness(dailyWeatherElement.getCloudiness());
         dailyWeatherElementDto.setProbabilityOfPrecipitation(dailyWeatherElement.getProbabilityOfPrecipitation());
-        //dailyWeatherElementDto.setRainAmount(dailyWeatherElementDto.getRainAmount());
+        dailyWeatherElementDto.setRainAmount(dailyWeatherElement.getRainAmount());
         dailyWeatherElementDto.setUvi(dailyWeatherElement.getUvi());
 
         return dailyWeatherElementDto;

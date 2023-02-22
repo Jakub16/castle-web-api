@@ -4,6 +4,8 @@ import com.castle.data.model.HourlyWeatherElement;
 import com.castle.webapi.contract.HourlyWeatherElementDto;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class HourlyWeatherElementMapper implements IMapEntities<HourlyWeatherElement, HourlyWeatherElementDto> {
     @Override
@@ -14,7 +16,7 @@ public class HourlyWeatherElementMapper implements IMapEntities<HourlyWeatherEle
     @Override
     public HourlyWeatherElementDto map(HourlyWeatherElement hourlyWeatherElement, HourlyWeatherElementDto hourlyWeatherElementDto) {
         hourlyWeatherElementDto.setId(hourlyWeatherElement.getId());
-        hourlyWeatherElementDto.setUnixTime(hourlyWeatherElement.getUnixTime());
+        hourlyWeatherElementDto.setTime(new Date(hourlyWeatherElement.getUnixTime() * 1000));
         hourlyWeatherElementDto.setTemperature(hourlyWeatherElement.getTemperature());
         hourlyWeatherElementDto.setPerceivedTemperature(hourlyWeatherElement.getTemperature());
         hourlyWeatherElementDto.setPressure(hourlyWeatherElement.getPressure());

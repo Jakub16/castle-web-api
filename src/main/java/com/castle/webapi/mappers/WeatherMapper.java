@@ -4,6 +4,8 @@ import com.castle.data.model.Weather;
 import com.castle.webapi.contract.WeatherDto;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class WeatherMapper implements IMapEntities<Weather, WeatherDto> {
     @Override
@@ -16,7 +18,7 @@ public class WeatherMapper implements IMapEntities<Weather, WeatherDto> {
         weatherDto.setId(weather.getId());
         weatherDto.setLatitude(weather.getLatitude());
         weatherDto.setLongitude(weather.getLongitude());
-        weatherDto.setUnixTime(weather.getUnixTime());
+        weatherDto.setTime(new Date(weather.getUnixTime() * 1000));
         weatherDto.setSunrise(weather.getSunrise());
         weatherDto.setSunset(weather.getSunset());
         weatherDto.setTemperature(weather.getTemperature());

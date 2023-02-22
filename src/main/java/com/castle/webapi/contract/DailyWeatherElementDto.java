@@ -3,13 +3,15 @@ package com.castle.webapi.contract;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 public class DailyWeatherElementDto {
 
     @JsonProperty("id")
     private long id;
-    @JsonProperty("unix_time")
-    private long unixTime;
+    @JsonProperty("time")
+    private Date time;
     @JsonProperty("sunrise")
     private long sunrise;
     @JsonProperty("sunset")
@@ -46,8 +48,8 @@ public class DailyWeatherElementDto {
     private int cloudiness;
     @JsonProperty("probability_of_precipitation")
     private float probabilityOfPrecipitation;
-//    @JsonProperty("rain_amount")
-//    private float rainAmount;
+    @JsonProperty("rain_amount")
+    private float rainAmount;
     @JsonProperty("uvi")
     private float uvi;
 

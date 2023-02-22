@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 public class WeatherDto {
@@ -13,8 +15,8 @@ public class WeatherDto {
     private float latitude;
     @JsonProperty("longitude")
     private float longitude;
-    @JsonProperty("unix_time")
-    private long unixTime;
+    @JsonProperty("time")
+    private Date time;
     @JsonProperty("sunrise")
     private long sunrise;
     @JsonProperty("sunset")

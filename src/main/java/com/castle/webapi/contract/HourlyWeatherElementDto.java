@@ -3,12 +3,14 @@ package com.castle.webapi.contract;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 public class HourlyWeatherElementDto {
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("unix_time")
-    private long unixTime;
+    @JsonProperty("time")
+    private Date time;
     @JsonProperty("temperature")
     private float temperature;
     @JsonProperty("perceived_temperature")
