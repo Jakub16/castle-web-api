@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -12,8 +13,8 @@ import java.util.List;
 public class HourlyWeatherDto {
     @JsonProperty("id")
     private long id;
-    @JsonProperty("unix_time_of_forecast")
-    private long unixTimeOfForecast;
+    @JsonProperty("time_of_forecast")
+    private Date timeOfForecast;
     @JsonProperty("hourly_weather")
     private List<HourlyWeatherElementDto> hourlyWeatherElementDtos = new ArrayList<>();
 }

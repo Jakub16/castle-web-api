@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -72,7 +73,7 @@ public class WeatherService implements IWeatherService{
         var dailyWeather = dataRepository.getDailyWeatherRepository().findFirstByOrderByUnixTimeOfForecastDesc();
         var dailyWeatherDto = new DailyWeatherDto();
         dailyWeatherDto.setId(dailyWeather.getId());
-        dailyWeatherDto.setUnixTimeOfForecast(dailyWeather.getUnixTimeOfForecast());
+        dailyWeatherDto.setTimeOfForecast(new Date(dailyWeather.getUnixTimeOfForecast() * 1000));
 
         dailyWeather
                 .getDailyWeatherElements()
@@ -97,7 +98,7 @@ public class WeatherService implements IWeatherService{
         var hourlyWeather = dataRepository.getHourlyWeatherRepository().findFirstByOrderByUnixTimeOfForecastDesc();
         var hourlyWeatherDto = new HourlyWeatherDto();
         hourlyWeatherDto.setId(hourlyWeather.getId());
-        hourlyWeatherDto.setUnixTimeOfForecast(hourlyWeather.getUnixTimeOfForecast());
+        hourlyWeatherDto.setTimeOfForecast(new Date(hourlyWeather.getUnixTimeOfForecast() * 1000));
 
         hourlyWeather
                 .getHourlyWeatherElements()
@@ -114,5 +115,26 @@ public class WeatherService implements IWeatherService{
                                     .setWeatherDescriptionDto(weatherDescriptionDto));
                 });
         return ResponseEntity.ok(hourlyWeatherDto);
+
+//        var hourlyWeather = dataRepository.getHourlyWeatherRepository().findFirstByOrderByUnixTimeOfForecastDesc();
+//        var hourlyWeatherDto = new HourlyWeatherDto();
+//        hourlyWeatherDto.setId(hourlyWeather.getId());
+//        hourlyWeatherDto.setTimeOfForecast(new Date(hourlyWeather.getUnixTimeOfForecast() * 1000));
+//
+//        hourlyWeather
+//                .getHourlyWeatherElements()
+//                .forEach((hourlyWeatherElement) -> {
+//                    var weatherDescriptionDto = mappersCatalog
+//                            .getWeatherDescriptionMapper()
+//                            .map(hourlyWeatherElement.getWeatherDescription());
+//
+//                    hourlyWeatherDto
+//                            .getHourlyWeatherElementDtos()
+//                            .add(mappersCatalog
+//                                    .getHourlyWeatherElementMapper()
+//                                    .map(hourlyWeatherElement)
+//                                    .setWeatherDescriptionDto(weatherDescriptionDto));
+//                });
+//        return ResponseEntity.ok(hourlyWeatherDto);
     }
 }
