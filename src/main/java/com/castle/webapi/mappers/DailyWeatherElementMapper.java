@@ -4,10 +4,12 @@ import com.castle.data.model.DailyWeatherElement;
 import com.castle.webapi.contract.DailyWeatherElementDto;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
 public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherElement, DailyWeatherElementDto> {
+
     @Override
     public DailyWeatherElementDto map(DailyWeatherElement dailyWeatherElement) {
         return map(dailyWeatherElement, new DailyWeatherElementDto());
@@ -15,10 +17,14 @@ public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherEleme
 
     @Override
     public DailyWeatherElementDto map(DailyWeatherElement dailyWeatherElement, DailyWeatherElementDto dailyWeatherElementDto) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        Date sunriseTime = new Date(dailyWeatherElement.getSunrise() * 1000);
+        Date sunsetTime = new Date(dailyWeatherElement.getSunset() * 1000);
+
         dailyWeatherElementDto.setId(dailyWeatherElement.getId());
         dailyWeatherElementDto.setTime(new Date(dailyWeatherElement.getUnixTime() * 1000));
-        dailyWeatherElementDto.setSunrise(dailyWeatherElement.getSunrise());
-        dailyWeatherElementDto.setSunset(dailyWeatherElement.getSunset());
+        dailyWeatherElementDto.setSunrise(simpleDateFormat.format(sunriseTime));
+        dailyWeatherElementDto.setSunset(simpleDateFormat.format(sunsetTime));
         dailyWeatherElementDto.setDayTemperature(dailyWeatherElement.getDayTemperature());
         dailyWeatherElementDto.setMinTemperature(dailyWeatherElement.getMinTemperature());
         dailyWeatherElementDto.setMaxTemperature(dailyWeatherElement.getMaxTemperature());

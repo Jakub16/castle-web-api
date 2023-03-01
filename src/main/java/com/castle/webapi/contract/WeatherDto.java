@@ -20,9 +20,9 @@ public class WeatherDto {
     @JsonProperty("time")
     private Date time;
     @JsonProperty("sunrise")
-    private long sunrise;
+    private String sunrise;
     @JsonProperty("sunset")
-    private long sunset;
+    private String sunset;
     @JsonProperty("temperature")
     private float temperature;
     @JsonProperty("perceived_temperature")

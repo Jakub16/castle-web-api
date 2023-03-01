@@ -13,9 +13,9 @@ public class DailyWeatherElementDto {
     @JsonProperty("time")
     private Date time;
     @JsonProperty("sunrise")
-    private long sunrise;
+    private String sunrise;
     @JsonProperty("sunset")
-    private long sunset;
+    private String sunset;
     @JsonProperty("day_temperature")
     private float dayTemperature;
     @JsonProperty("min_temperature")
