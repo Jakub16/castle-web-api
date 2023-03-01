@@ -5,7 +5,6 @@ import com.castle.webapi.contract.WeatherDto;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Component

@@ -17,14 +17,16 @@ public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherEleme
 
     @Override
     public DailyWeatherElementDto map(DailyWeatherElement dailyWeatherElement, DailyWeatherElementDto dailyWeatherElementDto) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sunDateFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat generalTimeFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date generalTime = new Date(dailyWeatherElement.getUnixTime() * 1000);
         Date sunriseTime = new Date(dailyWeatherElement.getSunrise() * 1000);
         Date sunsetTime = new Date(dailyWeatherElement.getSunset() * 1000);
 
         dailyWeatherElementDto.setId(dailyWeatherElement.getId());
-        dailyWeatherElementDto.setTime(new Date(dailyWeatherElement.getUnixTime() * 1000));
-        dailyWeatherElementDto.setSunrise(simpleDateFormat.format(sunriseTime));
-        dailyWeatherElementDto.setSunset(simpleDateFormat.format(sunsetTime));
+        dailyWeatherElementDto.setTime(generalTimeFormat.format(generalTime));
+        dailyWeatherElementDto.setSunrise(sunDateFormat.format(sunriseTime));
+        dailyWeatherElementDto.setSunset(sunDateFormat.format(sunsetTime));
         dailyWeatherElementDto.setDayTemperature(dailyWeatherElement.getDayTemperature());
         dailyWeatherElementDto.setMinTemperature(dailyWeatherElement.getMinTemperature());
         dailyWeatherElementDto.setMaxTemperature(dailyWeatherElement.getMaxTemperature());

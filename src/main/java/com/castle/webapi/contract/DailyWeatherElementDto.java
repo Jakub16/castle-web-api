@@ -1,17 +1,19 @@
 package com.castle.webapi.contract;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 
 @Setter
+@Getter
 public class DailyWeatherElementDto {
 
     @JsonProperty("id")
     private long id;
     @JsonProperty("time")
-    private Date time;
+    private String time;
     @JsonProperty("sunrise")
     private String sunrise;
     @JsonProperty("sunset")

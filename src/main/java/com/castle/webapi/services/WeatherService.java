@@ -115,26 +115,5 @@ public class WeatherService implements IWeatherService{
                                     .setWeatherDescriptionDto(weatherDescriptionDto));
                 });
         return ResponseEntity.ok(hourlyWeatherDto);
-
-//        var hourlyWeather = dataRepository.getHourlyWeatherRepository().findFirstByOrderByUnixTimeOfForecastDesc();
-//        var hourlyWeatherDto = new HourlyWeatherDto();
-//        hourlyWeatherDto.setId(hourlyWeather.getId());
-//        hourlyWeatherDto.setTimeOfForecast(new Date(hourlyWeather.getUnixTimeOfForecast() * 1000));
-//
-//        hourlyWeather
-//                .getHourlyWeatherElements()
-//                .forEach((hourlyWeatherElement) -> {
-//                    var weatherDescriptionDto = mappersCatalog
-//                            .getWeatherDescriptionMapper()
-//                            .map(hourlyWeatherElement.getWeatherDescription());
-//
-//                    hourlyWeatherDto
-//                            .getHourlyWeatherElementDtos()
-//                            .add(mappersCatalog
-//                                    .getHourlyWeatherElementMapper()
-//                                    .map(hourlyWeatherElement)
-//                                    .setWeatherDescriptionDto(weatherDescriptionDto));
-//                });
-//        return ResponseEntity.ok(hourlyWeatherDto);
     }
 }
