@@ -1,10 +1,7 @@
 package com.castle.webapi.mappers;
 
 import com.castle.data.model.*;
-import com.castle.webapi.contract.DailyWeatherElementDto;
-import com.castle.webapi.contract.HourlyWeatherElementDto;
-import com.castle.webapi.contract.WeatherDescriptionDto;
-import com.castle.webapi.contract.WeatherDto;
+import com.castle.webapi.contract.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -17,5 +14,6 @@ public class EntityMapper implements ICatalogMappers {
     private final IMapEntities<WeatherDescription, WeatherDescriptionDto> weatherDescriptionMapper;
     private final IMapEntities<DailyWeatherElement, DailyWeatherElementDto> dailyWeatherElementMapper;
     private final IMapEntities<HourlyWeatherElement, HourlyWeatherElementDto> hourlyWeatherElementMapper;
-
+    private final IMapEntities<WeatherSensor, WeatherSensorDto> weatherSensorMapper;
+    private final IMapEntities<WeatherSensor, WeatherSensorDto> weatherSensorDtoMapper;
 }

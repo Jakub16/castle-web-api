@@ -46,4 +46,9 @@ public class DailyWeatherElementMapper implements IMapEntities<DailyWeatherEleme
 
         return dailyWeatherElementDto;
     }
+
+    @Override
+    public DailyWeatherElement mapToEntity(DailyWeatherElementDto dailyWeatherElementDto, DailyWeatherElement dailyWeatherElement) {
+        return null;
+    }
 }

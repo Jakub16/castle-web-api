@@ -23,4 +23,9 @@ public class WeatherSensorMapper implements IMapEntities<WeatherSensor, WeatherS
 
         return weatherSensorDto;
     }
+
+    @Override
+    public WeatherSensor mapToEntity(WeatherSensorDto weatherSensorDto, WeatherSensor weatherSensor) {
+        return null;
+    }
 }

@@ -20,4 +20,9 @@ public class WeatherDescriptionMapper implements IMapEntities<WeatherDescription
 
         return weatherDescriptionDto;
     }
+
+    @Override
+    public WeatherDescription mapToEntity(WeatherDescriptionDto weatherDescriptionDto, WeatherDescription weatherDescription) {
+        return null;
+    }
 }

@@ -35,4 +35,9 @@ public class WeatherMapper implements IMapEntities<Weather, WeatherDto> {
 
         return weatherDto;
     }
+
+    @Override
+    public Weather mapToEntity(WeatherDto weatherDto, Weather weather) {
+        return null;
+    }
 }

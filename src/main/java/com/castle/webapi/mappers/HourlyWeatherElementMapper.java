@@ -27,4 +27,9 @@ public class HourlyWeatherElementMapper implements IMapEntities<HourlyWeatherEle
 
         return hourlyWeatherElementDto;
     }
+
+    @Override
+    public HourlyWeatherElement mapToEntity(HourlyWeatherElementDto hourlyWeatherElementDto, HourlyWeatherElement hourlyWeatherElement) {
+        return null;
+    }
 }
